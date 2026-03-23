@@ -1,0 +1,9 @@
+# Example global machine config patch applied to all nodes.
+# Talos machine config patches use the same structure as the machine config itself.
+# See: https://www.talos.dev/latest/reference/configuration/
+
+# machine:
+#   network:
+#     nameservers:
+#       - 1.1.1.1
+#       - 8.8.8.8
