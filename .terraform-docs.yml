@@ -2,8 +2,8 @@ formatter: markdown table
 
 version: ""
 
-header-from: ""
-footer-from: ""
+# header-from: ""
+# footer-from: ""
 
 recursive:
   enabled: false
