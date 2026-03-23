@@ -10,7 +10,7 @@ data "talos_client_configuration" "this" {
   nodes                = local.controlplane_nodes
 }
 
-###########################
+##########################
 # Bootstrap
 ###########################
 resource "talos_machine_bootstrap" "this" {
