@@ -13,7 +13,6 @@ sections:
     - requirements
     - providers
     - modules
-    - resources
 
 output:
   file: README.md
