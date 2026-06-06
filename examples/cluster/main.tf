@@ -12,16 +12,16 @@ module "cluster" {
   disk_selector     = var.disk_selector
 
   # Control plane config
-  controlplane_config_patches   = [for p in var.controlplane_config_patches : file(p)]
-  controlplane_nodes            = var.controlplane_nodes
-  controlplane_extensions       = var.controlplane_extensions
+  controlplane_config_patches      = [for p in var.controlplane_config_patches : file(p)]
+  controlplane_nodes               = var.controlplane_nodes
+  controlplane_extensions          = var.controlplane_extensions
   reset_controlplane_on_destroy    = var.reset_controlplane_on_destroy
   graceful_controlplane_on_destroy = var.graceful_controlplane_on_destroy
 
   # Worker config
-  worker_config_patches   = [for p in var.worker_config_patches : file(p)]
-  worker_nodes            = var.worker_nodes
-  worker_extensions       = var.worker_extensions
+  worker_config_patches      = [for p in var.worker_config_patches : file(p)]
+  worker_nodes               = var.worker_nodes
+  worker_extensions          = var.worker_extensions
   reset_worker_on_destroy    = var.reset_worker_on_destroy
   graceful_worker_on_destroy = var.graceful_worker_on_destroy
 }
