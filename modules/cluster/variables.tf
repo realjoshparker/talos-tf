@@ -93,8 +93,20 @@ variable "reset_controlplane_on_destroy" {
   default     = false
 }
 
+variable "graceful_controlplane_on_destroy" {
+  type        = bool
+  description = "Whether to gracefully shut down control plane nodes before resetting on destroy."
+  default     = true
+}
+
 variable "reset_worker_on_destroy" {
   type        = bool
   description = "Whether to reset worker nodes when destroying the cluster. This will wipe all data on the worker nodes."
   default     = false
+}
+
+variable "graceful_worker_on_destroy" {
+  type        = bool
+  description = "Whether to gracefully shut down worker nodes before resetting on destroy."
+  default     = true
 }
