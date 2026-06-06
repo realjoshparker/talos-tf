@@ -35,7 +35,8 @@ resource "talos_machine_configuration_apply" "worker" {
   endpoint                    = each.value
 
   on_destroy = {
-    reset = var.reset_worker_on_destroy
+    graceful = var.graceful_worker_on_destroy
+    reset    = var.reset_worker_on_destroy
   }
 }
 
