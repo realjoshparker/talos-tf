@@ -28,8 +28,8 @@ module "cluster" {
 
   cluster_name       = "my-cluster"
   cluster_endpoint   = "192.168.1.2"
-  kubernetes_version = "1.32.0"
-  talos_version      = "v1.9.0"
+  kubernetes_version = "1.35.0"
+  talos_version      = "v1.12.5"
 
   controlplane_nodes = ["192.168.1.2", "192.168.1.3", "192.168.1.4"]
   worker_nodes       = ["192.168.1.5", "192.168.1.6"]

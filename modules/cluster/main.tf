@@ -1,4 +1,14 @@
 ###########################
+# HA endpoint check
+###########################
+check "ha_endpoint" {
+  assert {
+    condition     = length(var.controlplane_nodes) <= 1 || var.cluster_endpoint != null
+    error_message = "Multiple control plane nodes detected but cluster_endpoint is not set. All API traffic will route to ${var.controlplane_nodes[0]} only, which defeats HA. Set cluster_endpoint to a VIP or load balancer IP (e.g. kube-vip)."
+  }
+}
+
+###########################
 # Machine secrets
 ###########################
 resource "talos_machine_secrets" "this" {}
@@ -19,7 +29,6 @@ resource "talos_machine_bootstrap" "this" {
 
   depends_on = [
     talos_machine_configuration_apply.controlplane,
-    talos_machine_configuration_apply.worker
   ]
 
   lifecycle {

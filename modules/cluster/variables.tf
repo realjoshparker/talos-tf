@@ -52,8 +52,8 @@ variable "controlplane_nodes" {
   }
 
   validation {
-    condition     = contains([1, 3, 5], length(var.controlplane_nodes))
-    error_message = "Control plane node count must be 1, 3, or 5 for etcd quorum."
+    condition     = length(var.controlplane_nodes) % 2 == 1
+    error_message = "Control plane node count must be an odd number for etcd quorum (e.g. 1, 3, 5)."
   }
 }
 
