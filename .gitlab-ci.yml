@@ -1,0 +1,13 @@
+stages:
+  - sync
+
+sync-to-github:
+  stage: sync
+  image:
+    name: alpine/git:latest
+    entrypoint: [""]
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  script:
+    - git remote add github https://realjoshparker:${GITHUB_TOKEN}@github.com/realjoshparker/talos-tf.git
+    - git push github HEAD:main
