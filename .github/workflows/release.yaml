@@ -29,13 +29,15 @@ jobs:
         run: tofu validate
         working-directory: modules/cluster
 
-      - name: trivy (IaC)
-        uses: aquasecurity/trivy-action@0.36.0
+      - name: trivy (IaC Mode)
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
-          scan-type: config
-          scan-ref: .
+          scan-type: 'config'
+          hide-progress: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
           exit-code: '1'
-          severity: CRITICAL,HIGH
+          severity: 'CRITICAL,HIGH'
 
   release:
     name: Release
